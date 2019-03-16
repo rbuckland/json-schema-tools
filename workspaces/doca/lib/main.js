@@ -18,6 +18,11 @@ program
     )}: ${chalk.green('@cloudflare/doca-default-theme')}`
   )
   .option(
+    '-g, --glob <globPattern>',
+    `Glob pattern to match schema files with.
+     ${chalk.grey('Default')}: ${chalk.green('**/*.json')}`
+  )
+  .option(
     '-i, --input <input>',
     `Folder with JSON HyperSchemas. ${chalk.grey(
       'Default'
@@ -35,7 +40,7 @@ program
   )
   .description('initialize a new doca project')
   .action(function(args) {
-    init(args.theme, args.input, args.output, args.dev);
+    init(args.theme, args.input, args.globPattern, args.output, args.dev);
   });
 
 program
